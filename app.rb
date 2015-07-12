@@ -13,3 +13,4 @@ require_relative "models/products.rb"
 
 # Controllers
 require_relative "controllers/main.rb"
+require_relative "controllers/products.rb"
