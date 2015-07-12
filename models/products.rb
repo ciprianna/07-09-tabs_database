@@ -37,6 +37,17 @@ class Product
     end
   end
 
+  # Ensures that an updated Product Object has valid fields before saving
+  #
+  # Returns the Object if saved or false if save failed
+  def save_valid
+    if self.valid_save?
+      self.save
+    else
+      false
+    end
+  end
+
   # Utility - Checks if the fields for a new Object are entered correctly
   #
   # Returns valid - true/false Boolean
@@ -65,6 +76,31 @@ class Product
       if names["name"] == @name
         valid = false
       end
+    end
+
+    return valid
+  end
+
+  # Utility - Checks if the fields for a saved Object are entered correctly
+  #
+  # Returns valid - true/false Boolean
+  def valid_save?
+    valid = true
+
+    if self.name.nil? || self.name == ""
+      valid = false
+    end
+
+    if self.general_info.nil? || self.general_info == ""
+      valid = false
+    end
+
+    if self.technical_specs.nil? || self.technical_specs == ""
+      valid = false
+    end
+
+    if self.where_to_buy.nil? || self.where_to_buy == ""
+      valid = false
     end
 
     return valid
