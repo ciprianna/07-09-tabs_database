@@ -1,0 +1,24 @@
+<h2>All Products</h2>
+<div id="list_all_products">
+  <% Product.all.each do |product| %>
+  <table>
+    <th>Name</th>
+    <th>Product Information</th>
+    <th>Technial Specs</th>
+    <th>Location</th>
+    <tr>
+      <td>
+        <%= product.name %>
+      </td>
+      <td>
+        <%= product.general_info %>
+      </td>
+      <td>
+        <%= product.technical_specs %>
+      </td>
+      <td>
+        <%= product.where_to_buy %>
+      </td>
+    </tr>
+  </table>
+</div>
