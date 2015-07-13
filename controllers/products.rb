@@ -58,3 +58,28 @@ get "/save_edited_product" do
   end
 
 end
+
+# ------------------------------------------------------------------------------
+# Delete a product
+# ------------------------------------------------------------------------------
+# Step 1 - Select a product to delete
+get "/delete_product" do
+  erb :"products/delete_product"
+end
+
+# Step 2 - Confirm product to delete
+get "/delete/:id" do
+  @product_to_delete = Product.find(params["id"])
+  erb :"products/confirm_delete"
+end
+
+# Step 3 - Delete
+get "/really_delete" do
+  if params["products"]["confirm_delete"] == "yes"
+    product_to_delete = Product.find(params["products"]["id"])
+    product_to_delete.delete
+    erb :"products/delete_success"
+  else
+    erb :"index"
+  end
+end

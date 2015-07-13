@@ -1,0 +1,10 @@
+<p>
+  Are you sure you wish to delete <%= @product_to_delete.name %>?
+</p>
+
+<form action="/really_delete">
+  <input type="radio" name="products[confirm_delete]" value="Yes">Yes<br>
+  <input type="radio" name="products[confirm_delete]" value="No">No
+  <input type="hidden" name="products[id]" value="params['id']"><br>
+  <input type="submit">
+</form>
