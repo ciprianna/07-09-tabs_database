@@ -31,7 +31,7 @@ class Product
   # Returns the Object if it was added to the database or false if it failed
   def add_to_database
     if self.valid?
-      Food.add({"name" => "#{self.name}", "general_info" => "#{self.general_info}", "technical_specs" => "#{self.technical_specs}", "where_to_buy" => "#{self.where_to_buy}"})
+      Product.add({"name" => "#{self.name}", "general_info" => "#{self.general_info}", "technical_specs" => "#{self.technical_specs}", "where_to_buy" => "#{self.where_to_buy}"})
     else
       false
     end

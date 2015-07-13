@@ -1,0 +1,19 @@
+<div>
+  <% if @error %>
+    <h3>Cannot add product to database - missing information</h3>
+  <% end %>
+</div>
+
+<div>
+  <form action="save_new_product">
+    <h2>Product Name</h2>
+    <input type="text" name="products[name]" placeholder="Name">
+    <h2>General Information</h2>
+    <input type="text" name="products[general_info]" placeholder="General Product Information">
+    <h2>Technical Specifications</h2>
+    <input type="text" name="products[technical_specs]" placeholder="Technical Specs">
+    <h2>Purchase Location</h2>
+    <input type="text" name="products[where_to_buy]" placeholder="Purchase Location">
+    <input type="submit">
+  </form>
+</div>
