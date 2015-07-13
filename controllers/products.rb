@@ -1,7 +1,14 @@
 # ------------------------------------------------------------------------------
 # View all products
 # ------------------------------------------------------------------------------
-get "/all_products" do
+# Step 1 - List all products as links
+get "/list_all_products" do
+  erb :"products/list_all_products"
+end
+
+# Step 2 - Display specific product information
+get "/all_products/:id" do
+  @view_product = Product.find(params["id"])
   erb :"products/all_products"
 end
 

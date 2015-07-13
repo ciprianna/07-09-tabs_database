@@ -1,0 +1,47 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+  font-size: 14pt;
+}
+
+#tabs{
+  list-style-type: none;
+  margin: 30px 0 0 0;
+}
+
+#tabs li{
+  display: inline;
+  border: solid 1px;
+  border-bottom: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: lightgray;
+}
+
+a {
+  cursor: pointer;
+}
+
+a.selected {
+  background-color: darkgray;
+  color: white;
+  font-weight: bold;
+  border-bottom: none;
+}
+
+div.tab_content{
+  border: 1px solid black;
+  padding: 10px;
+  background-color: lightgray;
+}
+
+div.tab_content.hide {
+  display: none;
+}

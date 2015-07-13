@@ -1,0 +1,14 @@
+<a href="/home">Return Home</a>
+
+<h2>All Products</h2>
+<div id="list_all_products">
+  <% Product.all.each do |product| %>
+    <ul>
+      <li>
+        <a href="all_products/<%= product.id %>">
+            <%= product.name %>
+        </a>
+      </li>
+    </ul>
+  <% end %>
+</div>

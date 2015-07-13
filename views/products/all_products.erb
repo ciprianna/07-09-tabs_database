@@ -1,26 +1,30 @@
+<body window.onload="load_screen()";>
+
+
 <a href="/home">Return Home</a>
-<h2>All Products</h2>
+
+<h2>Product Information</h2>
 <div id="list_all_products">
-  <% Product.all.each do |product| %>
-  <table>
-    <th>Name</th>
-    <th>Product Information</th>
-    <th>Technial Specs</th>
-    <th>Location</th>
-    <tr>
-      <td>
-        <%= product.name %>
-      </td>
-      <td>
-        <%= product.general_info %>
-      </td>
-      <td>
-        <%= product.technical_specs %>
-      </td>
-      <td>
-        <%= product.where_to_buy %>
-      </td>
-    </tr>
-  </table>
-  <% end %>
+
+  <h2><%= @view_product.name %></h2>
+
+  <ul id="tabs">
+    <li><a href="#general_info">About</a></li>
+    <li><a href="#technical_specs">Contact Us</a></li>
+    <li><a href="#where_to_buy">Location</a></li>
+  </ul>
+
+  <div class="tab_content" id="general_info">
+    <%= @view_product.general_info %>
+  </div>
+
+  <div class="tab_content" id="technical_specs">
+    <%= @view_product.technical_specs %>
+  </div>
+
+  <div class="tab_content" id="where_to_buy">
+    <%= @view_product.where_to_buy %>
+  </div>
+
 </div>
+</body>
