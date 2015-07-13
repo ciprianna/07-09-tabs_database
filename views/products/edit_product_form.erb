@@ -1,0 +1,24 @@
+<div>
+  <% if @error %>
+    <h3>Cannot save changed product information to database - missing information</h3>
+  <% end %>
+</div>
+
+<div>
+  <form action="/save_edited_product">
+    <h2>Product Name</h2>
+    <input type="text" name="products[name]" value="<%= @selected_product.name %>">
+    <h2>General Information</h2>
+    <input type="text" name="products[general_info]" value="<%= @selected_product.general_info %>">
+    <h2>Technical Specifications</h2>
+    <input type="text" name="products[technical_specs]" value="<%= @selected_product.technical_specs %>">
+    <h2>Purchase Location</h2>
+    <input type="text" name="products[where_to_buy]" value="<%= @selected_product.where_to_buy %>">
+    <% if params['id'].nil? %>
+      <input type="hidden" name="products[id]" value="<%= params['products']['id'] %>">
+    <% else %>
+      <input type="hidden" name="products[id]" value="<%= params['id'] %>">
+    <% end %>
+    <input type="submit">
+  </form>
+</div>

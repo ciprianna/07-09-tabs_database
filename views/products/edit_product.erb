@@ -1,0 +1,10 @@
+<div>
+  <h2>Choose a product to edit</h2>
+  <% Product.all.each do |product| %>
+    <ul>
+      <li>
+        <a href="edit_product/<%= product.id %>"><%= product.name %></a>
+      </li>
+    </ul>
+  <% end %>
+</div>

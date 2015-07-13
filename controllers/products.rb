@@ -24,3 +24,37 @@ get "/save_new_product" do
     erb :"products/add_product"
   end
 end
+
+# ------------------------------------------------------------------------------
+# Edit product information
+# ------------------------------------------------------------------------------
+# Step 1 - Select the product to update
+get "/edit_product" do
+  erb :"products/edit_product"
+end
+
+# Step 2 - Display the form for the selected product
+get "/edit_product/:id" do
+  @selected_product = Product.find(params["id"])
+  erb :"products/edit_product_form"
+end
+
+# Step 3 - Save the edited information
+get "/save_edited_product" do
+  @selected_product = Product.find(params["products"]["id"])
+  @selected_product.name = params["products"]["name"]
+  @selected_product.general_info = params["products"]["general_info"]
+  @selected_product.technical_specs = params["products"]["technical_specs"]
+  @selected_product.where_to_buy = params["products"]["where_to_buy"]
+
+  saved_product = @selected_product.save_valid
+
+  if (saved_product != false) && (!params["products"].nil?)
+    erb :"products/success"
+  else
+    @selected_product
+    @error = true
+    erb :"products/edit_product_form"
+  end
+
+end
