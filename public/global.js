@@ -1,4 +1,4 @@
-window.onload = function load_screen() {
+
   var tabLinks = new Array();
   var contentDivs = new Array();
 
@@ -22,10 +22,6 @@ window.onload = function load_screen() {
 
     // Starting with an index of 0, loop through tabLinks, adding
     // showTab function to each tab.
-    // for (var i = 0; i < tabLinks.length; i++){
-  //     tabLinks[id].onclick = showTab;
-  //     if (i === 0) tabLinks[id].className = "selected";
-  //   }
     var i = 0;
 
     for ( var id in tabLinks ) {
@@ -37,10 +33,6 @@ window.onload = function load_screen() {
 
     // Starting with an index of 0, loop through contentDivs, adding
     // hide Class when tab is not selected.
-   //  for (var i = 0; i < contentDivs.length; i++){
-  //     if (i !== 0) contentDivs[id].className = "tab_content hide";
-  //   }
-  // }
     var i = 0;
 
     for ( var id in contentDivs ) {
@@ -85,4 +77,3 @@ window.onload = function load_screen() {
     var linkPos = url.lastIndexOf ('#');
     return url.substring(linkPos + 1);
   }
-}
